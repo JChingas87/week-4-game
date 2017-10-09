@@ -1,0 +1,83 @@
+body {
+    background-image: url("../images/elegant-background-31.jpg");
+}
+
+h3 {
+    text-align: center;
+    border-bottom: double 1px black;
+    font-family: 'Rye', "cursive";
+}
+
+.jumbotron {
+    background-image: url("../images/elegant-background-31.jpg");
+    text-align: center;
+    height: 150px;
+    font-family: 'Rye', "cursive";
+}
+
+.blockquote {
+    margin-left: 40px;
+    border: double 1px black;
+    padding: 10px 10px 10px 10px;
+    background-color: #C4C1C1;
+}
+
+.winning-score {
+    float: left;
+    width: 50%;
+    height: 150px;
+    border: double 1px black;
+    background-color: #C4C1C1;
+    margin-left: 40px;
+    margin-bottom: 25px;
+}
+
+.wins-losses {
+    width: 20%;
+    height: 150px;
+    border: double 1px black;
+    background-color: #C4C1C1;
+    margin-left: 380px;
+    margin-bottom: 25px;
+}
+
+.current-score {
+    border: double 1px black;
+    background-color: #C4C1C1;
+    margin-left: 40px;
+    height: 140px;
+    width: 77%;
+    margin-top: 150px;
+}
+
+.button1,
+.button2,
+.button3,
+.button4 {
+    height: 100px;
+    width: 100px;
+    float: left;
+    background-size: 100%;
+    background-size: 100px auto;
+    border: solid 1px black;
+}
+
+.button1 {
+    background-image: url("../images/yhst-71585368631737_2480_12758877.jpeg");
+    margin-right: 20px;
+    margin-left: 40px;
+}
+
+.button2 {
+    background-image: url("../images/imperial-topaz-bluphire.png");
+    margin-right: 20px;
+}
+
+.button3 {
+    background-image: url("../images/Sapphire_Kashmir_O_A_1024x1024.png");
+    margin-right: 20px;
+}
+
+.button4 {
+    background-image: url("../images/calibrated-emerald-round-aa.jpg");
+}
