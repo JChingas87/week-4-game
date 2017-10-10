@@ -13,49 +13,51 @@ var gameObject = {
     currentScore: 0,
 
     gameValues: function() {
-        $('.wins').empty();
-        $('.wins').append(gameObject.wins);
-        $('.losses').empty();
-        $('.losses').append(gameObject.losses);
+        $('#wins').empty();
+        $('#wins').append(this.wins);
+        $('#losses').empty();
+        $('#losses').append(this.losses);
         $('.current-score').empty();
-        $('.current-score').append(gameObject.currentScore);
+        $('.current-score').append(this.currentScore);
 
     },
 
     gameReset: function() {
 
-        gameObject.currentScore;
-        gameObject.winningNumber;
+        this.currentScore;
+        this.winningNumber;
 
-        game.Object.ruby;
-        game.Object.topaz;
-        game.Object.sapphire;
-        game.Object.emerald;
+        $('.winning-number').empty();
+        $('.winning-number').append(this.winningNumber);
 
-        $('.winning-score').empty();
-        $('.winning-score').append(gameObject.winningScore);
+        this.ruby;
+        this.topaz;
+        this.sapphire;
+        this.emerald;
 
-        gameObject.gameValues();
+        this.gameValues();
     },
 
     gameLogic: function() {
 
-        if (gameObject.winningScore == gameObject.current.Score) {
-            wins++;
-            gameObject.gameReset();
-        } else if (gameObject.winningScore < gameObject.currentScore) {
-            losses--;
-            gameObject.gameReset();
+        if (this.winningNumber == this.currentScore) {
+            this.wins = this.wins + 1;
+            this.gameReset();
+        } else if (this.winningNumber < this.currentScore) {
+            this.losses = this.losses + 1;
+            this.gameReset();
         } else {
-            gameObject.gameValues();
+            this.gameValues();
         }
 
     },
 
 }
 
-$(".winning-score").append(gameObject.winningNumber);
-$(".winning-score").append(gameObject.currentScore);
+$(".current-score").append(gameObject.currentScore);
+console.log(gameObject.winningNumber);
+$(".winning-number").append(gameObject.winningNumber);
+console.log(gameObject.currentScore);
 
 // Add an on click listener to all elements that have the class "crystal"
 
@@ -63,18 +65,18 @@ $(document).ready(function() {
 
     $('#button-1').click(function() {
         gameObject.currentScore = gameObject.currentScore + gameObject.ruby;
-        gameObject.gameValues();
+        gameObject.gameLogic();
     })
     $('#button-2').click(function() {
         gameObject.currentScore = gameObject.currentScore + gameObject.topaz;
-        gameObject.gameValues();
+        gameObject.gameLogic();
     })
     $('#button-3').click(function() {
         gameObject.currentScore = gameObject.currentScore + gameObject.sapphire;
-        gameObject.gameValues();
+        gameObject.gameLogic();
     })
     $('#button-4').click(function() {
         gameObject.currentScore = gameObject.currentScore + gameObject.emerald;
-        gameObject.gameValues();
+        gameObject.gameLogic();
     })
 });
