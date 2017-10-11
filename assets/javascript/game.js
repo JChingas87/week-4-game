@@ -1,11 +1,11 @@
 var gameObject = {
 
-    winningNumber: Math.floor((Math.random() * 120) + 19),
+    winningNumber: 0,
 
-    ruby: Math.floor((Math.random() * 12) + 1),
-    topaz: Math.floor((Math.random() * 12) + 1),
-    sapphire: Math.floor((Math.random() * 12) + 1),
-    emerald: Math.floor((Math.random() * 12) + 1),
+    ruby: 0,
+    topaz: 0,
+    sapphire: 0,
+    emerald: 0,
 
     wins: 0,
     losses: 0,
@@ -13,34 +13,34 @@ var gameObject = {
     currentScore: 0,
 
     gameValues: function() {
-        $('#wins').empty();
-        $('#wins').append(this.wins);
-        $('#losses').empty();
-        $('#losses').append(this.losses);
-        $('.current-score').empty();
-        $('.current-score').append(this.currentScore);
-
+        $('#wins').empty().append(this.wins);
+        $('#losses').empty().append(this.losses);
+        $('.current-score').empty().append(this.currentScore);
     },
 
     gameReset: function() {
 
-        this.currentScore;
-        this.winningNumber;
+        this.currentScore = 0;
 
-        $('.winning-number').empty();
-        $('.winning-number').append(this.winningNumber);
+        this.winningNumber = Math.floor((Math.random() * 120) + 19);
 
-        this.ruby;
-        this.topaz;
-        this.sapphire;
-        this.emerald;
+        $('.winning-number').empty().append(this.winningNumber);
+
+        this.ruby = Math.floor((Math.random() * 12) + 1);
+        this.topaz = Math.floor((Math.random() * 12) + 1);
+        this.sapphire = Math.floor((Math.random() * 12) + 1);
+        this.emerald = Math.floor((Math.random() * 12) + 1);
 
         this.gameValues();
     },
 
     gameLogic: function() {
 
-        if (this.winningNumber == this.currentScore) {
+        if ((this.winningNumber == 0) && (this.currentScore == 0)) {
+            this.wins = this.wins;
+            this.losses = this.losses;
+            this.gameReset();
+        } else if (this.winningNumber == this.currentScore) {
             this.wins = this.wins + 1;
             this.gameReset();
         } else if (this.winningNumber < this.currentScore) {
@@ -55,11 +55,8 @@ var gameObject = {
 }
 
 $(".current-score").append(gameObject.currentScore);
-console.log(gameObject.winningNumber);
 $(".winning-number").append(gameObject.winningNumber);
-console.log(gameObject.currentScore);
 
-// Add an on click listener to all elements that have the class "crystal"
 
 $(document).ready(function() {
 
