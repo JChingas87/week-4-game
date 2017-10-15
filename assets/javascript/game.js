@@ -1,3 +1,7 @@
+var intervalId;
+
+var clockRunning = false;
+
 var gameObject = {
 
     winningNumber: 0,
@@ -12,6 +16,40 @@ var gameObject = {
 
     currentScore: 0,
 
+    timer: {
+
+        time: 10,
+
+        reset: function() {
+
+            gameObject.timer.time = 10;
+
+            $(".timer").html(gameObject.timer.time);
+
+        },
+
+        start: function() {
+
+            if (!clockRunning) {
+                clockRunning = true;
+                intervalId = setInterval(gameObject.timer.count, 1000);
+
+            }
+
+        },
+
+        count: function() {
+
+            gameObject.timer.time--;
+            var currentTime = gameObject.timer.time;
+            $(".timer").html(gameObject.timer.time);
+
+        },
+
+    },
+
+
+
     gameValues: function() {
         $('#wins').empty().append(this.wins);
         $('#losses').empty().append(this.losses);
@@ -21,6 +59,8 @@ var gameObject = {
     gameReset: function() {
 
         this.currentScore = 0;
+
+        this.timer.reset();
 
         this.winningNumber = Math.floor((Math.random() * 120) + 19);
 
@@ -39,6 +79,9 @@ var gameObject = {
         if ((this.winningNumber == 0) && (this.currentScore == 0)) {
             this.wins = this.wins;
             this.losses = this.losses;
+            this.timer.start();
+            this.gameReset();
+        } else if (gameObject.timer.time = 0) {
             this.gameReset();
         } else if (this.winningNumber == this.currentScore) {
             this.wins = this.wins + 1;
